@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work & Pause Timer</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+<body>
+    <div class="timer-container">
+        <h1 id="timer-label">Work Time</h1>
+        <div id="timer">25:00</div>
+        <button id="startPauseBtn">Start</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+        let workTime = 25 * 60;
+        let shortBreak = 5 * 60;
+        let longBreak = 15 * 60;
+        let currentTime = workTime;
+        let isRunning = false;
+        let interval;
+        let sessionCount = 0;
+
+        const timerDisplay = document.getElementById("timer");
+        const startPauseBtn = document.getElementById("startPauseBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const timerLabel = document.getElementById("timerLabel");
+
+        function updateDisplay() {
+            let minutes = Math.floor(currentTime / 60);
+            let seconds = currentTime % 60;
+            timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startPauseTimer() {
+            if (isRunning) {
+                clearInterval(interval);
+                startPauseBtn.textContent = "Start";
+            } else {
+                interval = setInterval(() => {
+                    if (currentTime > 0) {
+                        currentTime--;
+                    } else {
+                        clearInterval(interval);
+                        sessionCount++;
+                        if (sessionCount % 4 === 0) {
+                            currentTime = longBreak;
+                            timerLabel.textContent = "Long Break";
+                        } else if (sessionCount % 2 === 0) {
+                            currentTime = shortBreak;
+                            timerLabel.textContent = "Short Break";
+                        } else {
+                            currentTime = workTime;
+                            timerLabel.textContent = "Work Time";
+                        }
+                        alert("Time's up! Next phase starts now.");
+                        startPauseTimer();
+                    }
+                    updateDisplay();
+                }, 1000);
+                startPauseBtn.textContent = "Pause";
+            }
+            isRunning = !isRunning;
+        }
+
+        function resetTimer() {
+            clearInterva(interval);
+            isRunning = false;
+            sessionCount = 0;
+            currentTime = workTime;
+            timerLabel.textContent = "Work Time";
+            startPauseBtn.textContent = "Start";
+            updateDisplay();
+        }
+
+        startPauseBtn.addEventListener("click", startPauseTimer);
+        resetBtn.addEventListener("click", resetTimer);
+
+        updateDisplay();
+    </script>
+</body>
+</html>

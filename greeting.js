@@ -1,0 +1,1 @@
+document.getElementById("welcome-message").textContent = greeting + " Es ist " + now.toLocaleTimeString();

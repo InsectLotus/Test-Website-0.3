@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="responsiv.css">
+    <link rel="stylesheet" href="styles!home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="fade-in">Welcome to My Personal Website</h1>
+        <p id="greeting"></p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="timer.html">Timer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero fade-in">
+        <h2>Discover My World</h2>
+        <p>Here you will find my projects, ideas, and my Social Media.</p>
+        <a href="about.html" class="btn">Look around</a>
+    </section>
+
+    <section class="image-gallery fade-in">
+        <div class="image-container">
+            <img src="bild1.jpg" alt="" class="image-left">
+            <img src="bild2.jpg" alt="" class="image-right">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 InsectLotus. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function updateGreeting() {
+            const now = new Date();
+            const hours = now.getHours();
+            let greeting = "";
+            
+            if (hours < 12) {
+               greeting = "Guten Morgen!";
+            } else if (hours < 18) {
+               greeting = "Guten Tag!"; 
+            } else {
+               greetin = "Guten Abend!";
+            }
+
+            document.getElementById("greeting").textContent =
+                greeting + " Es is " + now.toLocaleTimeString();
+        }
+
+        updateGreeting();
+        setInterval(updateGreeting, 1000);
+    </script>
+    <script src="Timer.js"></script>
+</body>
+</html>

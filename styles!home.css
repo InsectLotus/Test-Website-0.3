@@ -1,0 +1,139 @@
+.btn, nav ul li a {
+	text-decoration: none;
+	transition: background .3s,color .3s
+}
+
+header {
+	background-color: #1a1a1a; 
+	position: relative;
+	text-align: center;
+	padding: 20px 0;
+	margin-top: 10px;
+	border-bottom: 3px solid #fff;
+}
+
+#greeting {
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+
+
+body {
+	font-family: Arial,sans-serif;
+	background-color: #2e2e2e;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	overflow-x: hidden
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 0;
+	display: flex;
+	justify-content: center;
+	gap: 20px
+}
+
+	nav ul li {
+		display: inline
+	}
+
+		nav ul li a {
+			color: #fff;
+			font-size: 18px;
+			padding: 10px 15px;
+			border-radius: 5px
+		}
+
+			nav ul li a:hover {
+				background: #fff;
+				color: #000
+			}
+
+body::after, body::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 15%;
+	background-size: cover;
+	background-position: center;
+	z-index: -1
+}
+
+body::before {
+	left: 0;
+	background-image: url('images/oip (2).jpg')
+}
+
+body::after {
+	right: 0;
+	background-image: url('images/oip (9).jpg')
+}
+
+.hero {
+	margin: 50px auto;
+	padding: 40px;
+	max-width: 600px;
+	background: #1a1a1a;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(255,255,255,.5);
+	animation: 1s ease-in-out fadeIn
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+.btn {
+	padding: 12px 24px;
+	background: linear-gradient(135deg, #6a11cb, #2575fc);
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 50px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+	.btn:hover {
+		background: linear-gradient(135deg, #2575fc, #6a11cb);
+		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+	}
+
+footer {
+	background-color: #1a1a1a;
+	padding: 15px;
+	margin-top: 50px;
+	font-size: 14px;
+	color: #fff
+}
+
+.image-gallery {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.image-container img {
+	width: 45%;
+	height: auto;
+	border-radius: 8px;
+	transition: transform 0.3s ease;
+}
+
+
