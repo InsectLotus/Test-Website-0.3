@@ -26,8 +26,10 @@ nav ul {
 	padding: 0;
 	margin: 10px 0 0;
 	display: flex;
+	flex-wrap: nowrap;
 	justify-content: center;
 	gap: 20px
+	overflow-x auto;
 }
 
 	nav ul li {

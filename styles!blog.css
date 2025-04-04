@@ -1,8 +1,8 @@
 /* Allgemeine Stile */
 body {
 	font-family: Arial, sans-serif;
-	background-color: #111; /* Dunkles Grau statt #f4f4f4 für ein schwarz-weißes Design */
-	color: #fff; /* Weißer Text */
+	background-color: #111; /* Dunkles Grau statt #f4f4f4 fï¿½r ein schwarz-weiï¿½es Design */
+	color: #fff; /* Weiï¿½er Text */
 	margin: 0;
 	padding: 0;
 }
@@ -14,13 +14,13 @@ body {
 }
 
 header {
-	background-color: #111; /* Dunkles Grau für Header */
+	background-color: #111; /* Dunkles Grau fï¿½r Header */
 	color: white;
 	padding: 20px 0;
 	border-bottom: 2px solid #444; /* Graue Linie unter dem Header */
 	display: flex;
 	justify-content: space-between;
-	slign-items: center;
+	align-items: center;
 }
 
 	header h1 {
@@ -35,7 +35,9 @@ nav ul {
 	padding: 0;
 	margin: 0;
 	display: flex;
+	flex-wrap: none;
 	justify-content: center; /* Zentriert die Navigation */
+	overflow-x: auto;
 }
 
 	nav ul li {
@@ -45,18 +47,18 @@ nav ul {
 		nav ul li a {
 			color: white;
 			text-decoration: none;
-			font-size: 1.1em; /* Etwas größere Schrift */
+			font-size: 1.1em; /* Etwas grï¿½ï¿½ere Schrift */
 			padding: 10px;
 		}
 
 			nav ul li a:hover {
-				background-color: #444; /* Hover-Effekt für Links */
+				background-color: #444; /* Hover-Effekt fï¿½r Links */
 				border-radius: 5px;
 			}
 
 /* Footer */
 footer {
-	background-color: #111; /* Dunkles Grau für den Footer */
+	background-color: #111; /* Dunkles Grau fï¿½r den Footer */
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -72,7 +74,7 @@ footer {
 }
 
 .blog-post {
-	background-color: #222; /* Etwas dunkleres Grau für Blog-Posts */
+	background-color: #222; /* Etwas dunkleres Grau fï¿½r Blog-Posts */
 	padding: 20px;
 	margin-bottom: 20px;
 	border-radius: 8px;
@@ -82,18 +84,18 @@ footer {
 	.blog-post h2 {
 		font-size: 1.8em;
 		margin-bottom: 10px;
-		color: #fff; /* Weißer Titel */
+		color: #fff; /* Weiï¿½er Titel */
 	}
 
 	.blog-post .date {
 		font-size: 0.9em;
-		color: #bbb; /* Helles Grau für das Datum */
+		color: #bbb; /* Helles Grau fï¿½r das Datum */
 		margin-bottom: 10px;
 	}
 
 	.blog-post .read-more {
 		text-decoration: none;
-		color: #4CAF50; /* Grüner Link für "Read More" */
+		color: #4CAF50; /* Grï¿½ner Link fï¿½r "Read More" */
 		font-weight: bold;
 		margin-top: 10px;
 		display: inline-block;
@@ -103,7 +105,7 @@ footer {
 			text-decoration: underline;
 		}
 
-/* Zusatzstil für Links im Footer */
+/* Zusatzstil fï¿½r Links im Footer */
 footer a {
 	color: white;
 	text-decoration: none;

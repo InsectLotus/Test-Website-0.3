@@ -33,12 +33,13 @@ body {
 }
 
 nav ul {
-	list-style: none;
+	list-style-type: none;
 	padding: 0;
-	margin: 10px 0 0;
+	margin: 0;
 	display: flex;
-	justify-content: center;
-	gap: 20px
+	flex-wrap: none;
+	justify-content: center; /* Zentriert die Navigation */
+	overflow-x: auto;
 }
 
 	nav ul li {

@@ -10,23 +10,32 @@
     <div class="timer-container">
         <h1 id="timer-label">Work Time</h1>
         <div id="timer">25:00</div>
+
+        <label for="phase-select">Select Phase</label>
+        <select id="phase-select">
+            <option value="work">Work Time</option>
+            <option value="shortBreak">Short Break</option>
+            <option value="longBreak">Long Break</option>
+        </select>
+
         <button id="startPauseBtn">Start</button>
         <button id="resetBtn">Reset</button>
     </div>
 
     <script>
         let workTime = 25 * 60;
-        let shortBreak = 5 * 60;
-        let longBreak = 15 * 60;
+        let shortBreak = 15 * 60;
+        let longBreak = 45 * 60;
         let currentTime = workTime;
         let isRunning = false;
-        let interval;
+        let interval = null;
         let sessionCount = 0;
 
         const timerDisplay = document.getElementById("timer");
         const startPauseBtn = document.getElementById("startPauseBtn");
         const resetBtn = document.getElementById("resetBtn");
         const timerLabel = document.getElementById("timerLabel");
+        const phaseSelect = document.getElementById("phase-select");
 
         function updateDisplay() {
             let minutes = Math.floor(currentTime / 60);
@@ -44,7 +53,9 @@
                         currentTime--;
                     } else {
                         clearInterval(interval);
+                        interval = null;
                         sessionCount++;
+
                         if (sessionCount % 4 === 0) {
                             currentTime = longBreak;
                             timerLabel.textContent = "Long Break";
@@ -56,6 +67,7 @@
                             timerLabel.textContent = "Work Time";
                         }
                         alert("Time's up! Next phase starts now.");
+                        updateDisplay();
                         startPauseTimer();
                     }
                     updateDisplay();
@@ -66,12 +78,26 @@
         }
 
         function resetTimer() {
-            clearInterva(interval);
+            clearInterval(interval);
             isRunning = false;
             sessionCount = 0;
-            currentTime = workTime;
-            timerLabel.textContent = "Work Time";
+            updatePhase();
             startPauseBtn.textContent = "Start";
+            updateDisplay();
+        }
+
+        function updatePhase() {
+            const selectedPhase = phaseSelect.value;
+            if (selectedPhase === "work"){
+                currentTime = workTime;
+                timerLabel.textContent = "Work Time";
+            } else if (selectedPhase === "shortBreak") {
+                currentTime = shortBreak;
+                timerLabel.textContent = "Short Break";
+            } else if (selectedPhase === "longBreak") {
+                currentTime = longBreak;
+                timerLabel.textContent = "Long Break";
+            }
             updateDisplay();
         }
 
