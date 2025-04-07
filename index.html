@@ -47,15 +47,15 @@
             let greeting = "";
             
             if (hours < 12) {
-               greeting = "Guten Morgen!";
+               greeting = "Good Morning!";
             } else if (hours < 18) {
-               greeting = "Guten Tag!"; 
+               greeting = "Hello!"; 
             } else {
-               greetin = "Guten Abend!";
+               greetin = "Good Evening!";
             }
 
             document.getElementById("greeting").textContent =
-                greeting + " Es is " + now.toLocaleTimeString();
+                greeting + " it is " + now.toLocaleTimeString();
         }
 
         updateGreeting();
