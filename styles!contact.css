@@ -140,7 +140,7 @@ footer {
 /* Scroll-Animation */
 .fade-in {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(0px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
