@@ -1,0 +1,116 @@
+/* Allgemeine Stile */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #111; /* Dunkles Grau statt #f4f4f4 f�r ein schwarz-wei�es Design */
+	color: #fff; /* Wei�er Text */
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	background-color: #111; /* Dunkles Grau f�r Header */
+	color: white;
+	padding: 20px 0;
+	border-bottom: 2px solid #444; /* Graue Linie unter dem Header */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+	header h1 {
+		margin: 0;
+		font-size: 2em;
+		text-align: left;
+		padding-left: 20px;
+	}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: none;
+	justify-content: center; /* Zentriert die Navigation */
+	overflow-x: auto;
+}
+
+	nav ul li {
+		margin-left: 20px;
+	}
+
+		nav ul li a {
+			color: white;
+			text-decoration: none;
+			font-size: 1.1em; /* Etwas gr��ere Schrift */
+			padding: 10px;
+		}
+
+			nav ul li a:hover {
+				background-color: #444; /* Hover-Effekt f�r Links */
+				border-radius: 5px;
+			}
+
+/* Footer */
+footer {
+	background-color: #111; /* Dunkles Grau f�r den Footer */
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	width: 100%;
+	bottom: 0;
+}
+
+/* Blog-Styles */
+#blog-posts {
+	margin-top: 40px;
+	padding: 20px;
+}
+
+.blog-post {
+	background-color: #222; /* Etwas dunkleres Grau f�r Blog-Posts */
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+	.blog-post h2 {
+		font-size: 1.8em;
+		margin-bottom: 10px;
+		color: #fff; /* Wei�er Titel */
+	}
+
+	.blog-post .date {
+		font-size: 0.9em;
+		color: #bbb; /* Helles Grau f�r das Datum */
+		margin-bottom: 10px;
+	}
+
+	.blog-post .read-more {
+		text-decoration: none;
+		color: #4CAF50; /* Gr�ner Link f�r "Read More" */
+		font-weight: bold;
+		margin-top: 10px;
+		display: inline-block;
+	}
+
+		.blog-post .read-more:hover {
+			text-decoration: underline;
+		}
+
+/* Zusatzstil f�r Links im Footer */
+footer a {
+	color: white;
+	text-decoration: none;
+}
+
+	footer a:hover {
+		text-decoration: underline;
+	}
