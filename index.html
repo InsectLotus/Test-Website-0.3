@@ -31,30 +31,43 @@
         <a href="about.html" class="btn">Look around</a>
     </section>
 
+    <section class="overview-container">
+        <h2>Explore My Webiste</h2>
+
+        <div class="overview-item">
+            <h3>Blog</h3>
+            <p>Insights, Tutorials and exciting articles about my projects.</p>
+            <a href="blog.html" class="btn">Go to Blog</a>
+        </div>
+
+        <div class="overview-item">
+            <h3>About Me</h3>
+            <p>Learn more about me, my passion for programming, and my projects.</p>
+            <a href="about.html" class="btn">About Me</a>
+        </div>
+
+        <div class="overview-item">
+            <h3>Contacts</h3>
+            <p>Send me a message or ask me directly.</p>
+            <a href="contact.html" class="btn">Contact</a>
+        </div>
+
+        <div class="overview-item">
+            <h3>Timer</h3>
+            <p>Manage your work and break times with an intuitive timer.</p>
+            <a href="Timer.html" class="btn">Timer</a>
+        </div>
+
+        <div class="overview-item">
+            <h3>Password Generator</h3>
+            <p>Generate strong and quick passwords for all your accounts.</p>
+            <a href="Password.html" class="btn">Password Generator</a>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 InsectLotus. All Rights Reserved.</p>
     </footer>
-    <script>
-        function updateGreeting() {
-            const now = new Date();
-            const hours = now.getHours();
-            let greeting = "";
-            
-            if (hours < 12) {
-               greeting = "Good Morning!";
-            } else if (hours < 18) {
-               greeting = "Hello!"; 
-            } else {
-               greetin = "Good Evening!";
-            }
-
-            document.getElementById("greeting").textContent =
-                greeting + " it is " + now.toLocaleTimeString();
-        }
-
-        updateGreeting();
-        setInterval(updateGreeting, 1000);
-    </script>
-    <script src="Timer.js"></script>
+    <script src="Scripts/Clock.js"></script>
 </body>
 </html>
