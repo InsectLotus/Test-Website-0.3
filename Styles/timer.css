@@ -88,6 +88,36 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
+/*Progressbar für denn Timer*/
+#progressContainer {
+    width: 100%;
+    height: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto 30px auto;
+    max-width: 300px;
+    box-shadow: inset 0 0 5px #000;
+}
+
+#progressBar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    border-radius: 10px 0 0 10px;
+    transition: width 1s linear;
+}
+/*Aussehens verbesserungen für die kreis anzeige*/
+#progressCircle {
+    display: block;
+    margin: 20px auto;
+}
+
+#progressRing {
+    transition: stroke-dashoffset 1s linear;
+    transform-origin: 50% 50%;
+}
+
 /* Buttons */
 button {
     background-color: #fff;
@@ -131,5 +161,23 @@ select:hover {
 @media (max-width: 400px) {
     .timer-container {
         width: 90%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 6vw 2vw;
+        margin: 10vw auto;
+    }
+
+    #timer {
+        font-size: 38px;
+    }
+
+    #timer-label {
+        font-size: 19px;
+    }
+
+    button, select {
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 7px;
     }
 }

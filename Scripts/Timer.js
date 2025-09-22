@@ -1,60 +1,103 @@
-// Timer-Variablen
-let workTime = 25 * 60; // 25 Minuten Arbeitszeit
-let breakTime = 5 * 60;  // 5 Minuten Pause
-let timeLeft = workTime; // Start mit Arbeitszeit
-let isWorking = true; // Startet mit "Arbeiten"
-let timerRunning = false;
-let timerInterval;
+let workTime = 25 * 60;
+let shortBreak = 15 * 60;
+let longBreak = 45 * 60;
+let currentTime = workTime;
+let currentPhaseDuration = workTime;
+let isRunning = false;
+let interval = null;
+let sessionCount = 0;
 
-// HTML-Elemente abrufen
 const timerDisplay = document.getElementById("timer");
-const statusDisplay = document.getElementById("status");
-const startPauseBtn = document.getElementById("startPause");
-const resetBtn = document.getElementById("reset");
+const startPauseBtn = document.getElementById("startPauseBtn");
+const resetBtn = document.getElementById("resetBtn");
+const timerLabel = document.getElementById("timer-label");
+const phaseSelect = document.getElementById("phase-select");
+const progressBar = document.getElementById("progressBar");
 
-// Funktion zur Anzeige der Zeit
 function updateDisplay() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    statusDisplay.textContent = isWorking ? "Arbeitszeit" : "Pause";
+    let minutes = Math.floor(currentTime / 60);
+    let seconds = currentTime % 60;
+    timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
-// Timer starten oder pausieren
+function updateProgressBar() {
+    let percentLeft = (currentTime / currentPhaseDuration) * 100;
+    progressBar.style.width = percentLeft + "%";
+}
+
 function startPauseTimer() {
-    if (timerRunning) {
-        clearInterval(timerInterval);
-        timerRunning = false;
+    if (isRunning) {
+        clearInterval(interval);
         startPauseBtn.textContent = "Start";
     } else {
-        timerInterval = setInterval(() => {
-            if (timeLeft > 0) {
-                timeLeft--;
+        interval = setInterval(() => {
+            if (currentTime > 0) {
+                currentTime--;
                 updateDisplay();
+                updateProgressBar();
             } else {
-                isWorking = !isWorking; // Wechsel zwischen Arbeiten und Pause
-                timeLeft = isWorking ? workTime : breakTime;
+                clearInterval(interval);
+                interval = null;
+                sessionCount++;
+
+                if (sessionCount % 4 === 0) {
+                    currentTime = longBreak;
+                    currentPhaseDuration = longBreak;
+                    timerLabel.textContent = "Long Break";
+                } else if (sessionCount % 2 === 0) {
+                    currentTime = shortBreak;
+                    currentPhaseDuration = shortBreak;
+                    timerLabel.textContent = "Short Break";
+                } else {
+                    currentTime = workTime;
+                    currentPhaseDuration = workTime;
+                    timerLabel.textContent = "Work Time";
+                }
+                alert("Time's up! Next phase starts now.");
                 updateDisplay();
+                updateProgressBar();
+                startPauseTimer();
             }
         }, 1000);
-        timerRunning = true;
         startPauseBtn.textContent = "Pause";
     }
+    isRunning = !isRunning;
 }
 
-// Timer zurücksetzen
 function resetTimer() {
-    clearInterval(timerInterval);
-    timerRunning = false;
-    isWorking = true;
-    timeLeft = workTime;
-    updateDisplay();
+    clearInterval(interval);
+    isRunning = false;
+    sessionCount = 0;
+    updatePhase();
     startPauseBtn.textContent = "Start";
+    updateDisplay();
+    updateProgressBar();
 }
 
-// Event Listener für die Buttons
+function updatePhase() {
+    const selectedPhase = phaseSelect.value;
+    if (selectedPhase === "work") {
+        currentTime = workTime;
+        currentPhaseDuration = workTime;
+        timerLabel.textContent = "Work Time";
+    } else if (selectedPhase === "shortBreak") {
+        currentTime = shortBreak;
+        currentPhaseDuration = shortBreak;
+        timerLabel.textContent = "Short Break";
+    } else if (selectedPhase === "longBreak") {
+        currentTime = longBreak;
+        currentPhaseDuration = longBreak;
+        timerLabel.textContent = "Long Break";
+    }
+    updateDisplay();
+    updateProgressBar();
+}
+
 startPauseBtn.addEventListener("click", startPauseTimer);
 resetBtn.addEventListener("click", resetTimer);
+phaseSelect.addEventListener("change", () => {
+    resetTimer();
+});
 
-// Anzeige initial aktualisieren
 updateDisplay();
+updateProgressBar();
