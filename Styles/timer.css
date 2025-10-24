@@ -1,102 +1,94 @@
 @keyframes gradientShift {
-    0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
 body {
     font-family: Arial, sans-serif;
-    background: linear-gardient(45deg, #1a1a1a, #2e2e2e);
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+    background-size: 200% 200%;
     animation: gradientShift 10s ease infinite;
-    color: white;
+    color: #fff;
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-/* Header und Navigation */
 header {
-    background-color: #111;
-    padding: 20px;
-    border-bottom: 2px solid white;
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    border-bottom: 3px solid #fff;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
 }
-
 header h1 {
     margin: 0;
     font-size: 28px;
+    color: #59a6ff;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 nav ul li {
     display: inline-block;
-    margin: 0 10px;
 }
 
 nav ul li a {
-    background-color:#fff;
-    color: #000;
-    text-decoration: none;
-    padding: 10px 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 10px 18px;
     font-size: 16px;
     border-radius: 50px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0,.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(38,68,255,0.3);
 }
 
-nav ul li a:hover {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #000;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+nav ul li a:hover, nav ul li a.active {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 15px rgba(38,68,255,0.5);
 }
 
-/* Container für den Timer */
 .timer-container {
-    margin: 50px auto;
-    padding: 20px;
-    background: #000;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    width: 300px;
-    border: 2px solid white;
+    margin: 60px auto;
+    padding: 25px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    width: 320px;
+    animation:fadeIn 1s ease-in-out;
 }
 
-/* Timer-Anzeige */
 #timer {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: white;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(38,68,255,0.6);
 }
-
-/* Label für die Phase (Work Time, Break, etc.) */
 #timer-label {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    color: #59a6ff;
+    margin-bottom: 15px;
 }
 
-/*Progressbar für denn Timer*/
 #progressContainer {
     width: 100%;
     height: 20px;
     background-color: #444;
     border-radius: 10px;
     overflow: hidden;
-    margin: 20px auto 30px auto;
-    max-width: 300px;
+    margin: 20px 0 25px 0;
     box-shadow: inset 0 0 5px #000;
 }
 
@@ -107,7 +99,7 @@ nav ul li a:hover {
     border-radius: 10px 0 0 10px;
     transition: width 1s linear;
 }
-/*Aussehens verbesserungen für die kreis anzeige*/
+
 #progressCircle {
     display: block;
     margin: 20px auto;
@@ -118,66 +110,33 @@ nav ul li a:hover {
     transform-origin: 50% 50%;
 }
 
-/* Buttons */
 button {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #fff;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 15px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 10px 20px;
     border-radius: 50px;
-    transition: all 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0,.3);
-}
-
-button:hover {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #000;
-    box-shadow: 0 6px 15px rgba(0, 0, 0,.5);
-}
-
-/* Dropdown (Select) Styling */
-select {
-    background-color: #fff;
-    color: #000;
     border: none;
-    padding: 5px 10px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s, border 0.3s;
+    margin: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(38,68,255,0.4);
+    transition: all 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(38,68,255,0.5);
+}
+button.active {
+    transform: scale(0.97);
 }
 
-select:hover {
-    background-color: #000;
+select {
+    background-color: #2b2b2b;
     color: #fff;
-    border: 2px solid white;
-}
-
-/* Responsive Anpassungen */
-@media (max-width: 400px) {
-    .timer-container {
-        width: 90%;
-        min-width: 0;
-        box-sizing: border-box;
-        padding: 6vw 2vw;
-        margin: 10vw auto;
-    }
-
-    #timer {
-        font-size: 38px;
-    }
-
-    #timer-label {
-        font-size: 19px;
-    }
-
-    button, select {
-        width: 100%;
-        font-size: 1rem;
-        margin-bottom: 7px;
-    }
+    border: 1px solid #888;
+    padding:8px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
 }
