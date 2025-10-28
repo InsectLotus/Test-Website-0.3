@@ -49,7 +49,7 @@ nav ul li a.active {
     padding: 30px;
     background: #1a1a1a;
     border-radius: 12px;
-    box-shadow: 0 0 15x rgba(255,255,255,0.4);
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
     animation: fadeIn 1s ease-in-out;
     box-sizing: border-box;
     color: #ccc;
