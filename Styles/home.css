@@ -28,7 +28,7 @@
 body {
     font-family:cursive;
     background-color: #2e2e2e;
-    color: #fff;
+    color: whitesmoke;
     margin: 0;
     padding: 0;
     position: relative;
@@ -42,6 +42,7 @@ header {
     width: 100%;
     z-index: 1000;
     text-align: center;
+    border-radius: 20px;
     padding: 20px 0;
     margin-top: 10px;
     border-bottom: 3px solid #fff;
@@ -52,6 +53,7 @@ header {
     font-weight: bold;
     color: #fff;
     position: absolute;
+    text-decoration: white wavy underline;
     top: 10px;
     right: 20px;
 }
@@ -74,8 +76,9 @@ nav ul li a {
     color: #fff;
     font-size: 18px;
     padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    border-radius: 40px;
+    word-spacing: 10px;
+    transition: background 1s, color 1s;
 }
 
 nav ul li a:hover {
