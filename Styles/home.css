@@ -1,6 +1,5 @@
-/* Grundlegende Animationen */
 @keyframes gradientshift {
-    0%  {
+    0% {
         background-position: 0% 50%;
     }
     50% {
@@ -14,25 +13,27 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.btn, nav ul li a {
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family:cursive;
+    font-family: cursive;
     background-color: #2e2e2e;
     color: whitesmoke;
     margin: 0;
     padding: 0;
     position: relative;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 header {
@@ -44,8 +45,9 @@ header {
     text-align: center;
     border-radius: 20px;
     padding: 20px 0;
-    margin-top: 10px;
+    margin: 10px auto;
     border-bottom: 3px solid #fff;
+    max-width: 98%;
 }
 
 #greeting {
@@ -63,27 +65,30 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
-    overflow-x: auto;
+    gap: 15px;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
 
 nav ul li a {
     color: #fff;
     font-size: 18px;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 40px;
-    word-spacing: 10px;
-    transition: background 1s, color 1s;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 nav ul li a:hover {
     background: #fff;
     color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .hero {
@@ -91,149 +96,72 @@ nav ul li a:hover {
     padding: 40px;
     max-width: 600px;
     background: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 .overview-container {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
     max-width: 1000px;
     margin: 40px auto;
-    padding: 0 15px;
+    padding: 0 20px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .overview-item {
     background-color: #1a1a1a;
-    border-radius: 12px;
-    padding: 25px 30px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 25px;
     width: 100%;
-    box-sizing: border-box;
     color: #ccc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.overvie-item h3 {
-    flex-grow: 1;
-    margin: 0 20px 0 0;
-    min-width: 180px;
+.overview-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5);
+}
+
+.overview-item h3 {
+    flex-grow: 0;
     flex-shrink: 0;
+    margin: 0;
+    min-width: 200px;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 .overview-item p {
     flex-grow: 1;
-    margin: 0 20px 0 0;
+    margin: 0;
     font-size: 1rem;
-    line-height: 1.3;
+    line-height: 1.6;
+    color: #ccc;
 }
 
-.overview-item .btn, .btn {
-    background: linear-gradient(135deg, #6a11cb,#2575fc);
+.btn,
+.overview-item .btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: white;
     border-radius: 30px;
     padding: 14px 32px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 22px rgba(38,68,255,0.9);
-    flex-shrink: 0;
-    font-size: 1.05rem;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    user-select: none;
-    display: inline-block;
-    text-align: center;
-}
-
-.overview-item .btn:hover, .btn:hover {
-    background: linear-gradient(135deg,#2575fc,#6a11cb);
-    box-shadow: 0 8px 28px rgba(38,68,255,0.95);
-}
-
-footer {
-    background-color: #1a1a1a;
-    padding: 15px;
-    margin-top: 50px;
-    font-size: 14px;
-    color: #fff;
-}
-@media screen and (max-width: 700px) {
-    .overview-item {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        gap: 10px;
-    }
-    .overview-item h3 {
-        margin-bottom: 10px;
-        min-width: auto;
-    }
-    .overview-item p {
-        margin-bottom: 15px;
-    }
-    .overview-item .btn {
-        align-self: stretch;
-        text-align: center;
-        font-size: 1rem;
-        padding: 14px 0;
-    }
-    .btn {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 16px 0;
-        font-size: 1.1rem;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    header {
-        padding: 10px 0;
-        font-size: 20px;
-        border-bottom-width: 2px;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        overflow-x: visible;
-    }
-    nav ul li a {
-        font-size: 16px;
-        padding: 8px;
-        margin-top: 6px;
-    }
-    .hero {
-        margin: 20px 0;
-        padding: 18px 5vw;
-        max-width: 98vw;
-        font-size: 0.96em;
-    }
-    #greeting {
-        position: static;
-        display: block;
-        margin: 0 0 10px 0;
-        text-align: center;
-        font-size: 16px;
-    }
-    footer {
-        font-size: 13px;
-        margin-top: 20px;
-        padding: 10px 5vw;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    h1, h2 {
-        font-size: 1.18rem;
-    }
-    .hero {
-        padding: 12px 2vw;
-    }
+    
 }
